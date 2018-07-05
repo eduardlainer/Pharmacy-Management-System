@@ -8,7 +8,7 @@ Un sistem de manangement a unei farmacii care include: Stocul, produse, vanzari,
 
 
 # Realizat in
- ** HTML, CSS, Bootstrap, PHP. ***
+*** HTML, CSS, Bootstrap, PHP. ***
 
 # Realizat de: 
 

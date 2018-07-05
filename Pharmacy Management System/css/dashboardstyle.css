@@ -1,0 +1,190 @@
+/* Bara navigatie */
+
+.navbar {
+    font-family: 'Julius Sans One', sans-serif;
+    background-color: #2ecc71 !important;
+}
+
+.nav-link {
+    color: white !important;
+}
+
+.nav-link:hover {
+    font-size: 115%;
+}
+
+#logo {
+    margin-top: 2px;
+    margin-left: 30px;
+}
+
+.fa-bars {
+    color: white;
+}
+
+.row {
+    margin-left: -10px;
+    margin-top: 50px;
+}
+
+/* Sidebar */
+
+.barastanga a {
+    display: block;
+}
+
+/* General */
+
+body {
+    background-color: #ecf0f1;
+}
+
+/* carduri */
+
+.carduri {
+    text-align: center;
+    height: 150px;
+    width: 300px;
+    background-color: #2ecc71;
+    font-family: 'Julius Sans One', sans-serif;
+    margin-top: 10px;
+    border: 1px #2ecc71 solid;
+    margin-left: 5%;
+}
+
+.parainte {
+    color: white;
+}
+
+.sumazi {
+    margin-top: 40px;
+}
+
+.sumaluna {
+    margin-top: 40px;
+}
+
+.totalproduse {
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.totalfurnizori {
+    margin-top: 0px;
+    margin-bottom: 5px;
+    color: white;
+    font-family: 'Julius Sans One', sans-serif;
+    margin-left: 0px;
+}
+
+
+/* profil */
+
+.fa-user-md {
+    color: #2ecc71;
+}
+
+.btn {
+    background-color: #2ecc71;
+    border: none;
+
+}
+
+.btn:hover {
+    font-size: 105%;
+    background-color: #2ecc71;
+}
+
+.interior > p {
+    padding-top: 15px;
+}
+
+.profil {
+    font-family: 'Julius Sans One', sans-serif;
+    margin-top: 70px;
+    text-align: center;
+    margin-bottom: 50px;
+    margin-left: 30px;
+}
+
+.profil > p {
+    margin-bottom: 0;
+}
+
+.username {
+    margin-top: 10px;
+}
+
+.logout {
+    margin-top: 10px;
+    height: 32px;
+}
+
+.fa-money-bill-alt {
+    margin-top: 25px;
+    color: white;
+}
+
+.textinterior {
+    margin-top: 10px;
+    font-family: 'Julius Sans One', sans-serif;
+    color: white;
+}
+
+.fa-capsules {
+    margin-top: 30px;
+    color: white;
+    margin-bottom: 0;
+    padding : 0;
+}
+
+
+.fa-users{
+    color: white;
+    margin-top: 25px;
+}
+
+.produsee {
+    color: white;
+    font-family: 'Julius Sans One', sans-serif;
+    margin-top: -20px;
+}
+
+.fa-chart-line{
+    color: white;
+    margin-top: 25px;
+}
+
+.container {
+    padding-bottom: 150px;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.fa-dollar-sign {
+    margin-top: 25px;
+    color: white;
+}
+
+.fa-money-bill {
+    margin-top: 25px;
+    color: white;
+}
+
+.fa-credit-card {
+    margin-top: 25px;
+    color: white;
+}
+
+.fa-list-ol {
+    color: white;
+    margin-top: 25px;
+}
+
+.fa-archive {
+    color: white;
+    margin-top: 25px;
+
+}

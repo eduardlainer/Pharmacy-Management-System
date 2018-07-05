@@ -1,0 +1,63 @@
+.baranavigatie {
+    width: 100%;
+    height: 90px;
+    background-color: #2ecc71;
+    text-align: center;
+}
+
+.formlogin{
+    margin: auto;
+    margin-top: 20px;
+    width:300px;
+}
+
+.btn {
+    margin-left: 95px;
+    background-color: #2ecc71;
+    border: none;
+    font-family: 'Julius Sans One', sans-serif;
+}
+
+.btn:hover {
+    background-color: #2ecc71;
+    font-size: 105%;
+    font-family: 'Julius Sans One', sans-serif;
+}
+
+#logo {
+    margin-top: 8px;
+}
+
+#logintext{
+    font-family: 'Julius Sans One', sans-serif;
+    text-align: center;
+    font-size: 25px;
+    margin-top: 150px;
+}
+
+#singup{
+    text-align: center;
+    font-size: 75%;
+}
+
+a {
+    color: black;
+}
+
+a:hover {
+    color:black;
+    font-size: 110%;
+    text-decoration: none;
+}
+
+/* General */
+
+body {
+    background-color: #ecf0f1;
+}
+
+
+p > .error {
+    margin-left: 50px;
+    color: red;
+}

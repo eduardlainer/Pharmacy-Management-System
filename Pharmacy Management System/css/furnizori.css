@@ -1,0 +1,118 @@
+/* Bara navigatie */
+
+.navbar {
+    font-family: 'Julius Sans One', sans-serif;
+    background-color: #2ecc71 !important;
+}
+
+.nav-link {
+    color: white !important;
+}
+
+.nav-link:hover {
+    font-size: 115%;
+}
+
+#logo {
+    margin-top: 2px;
+    margin-left: 30px;
+}
+
+.fa-bars {
+    color: white;
+}
+
+.row {
+    margin-left: -10px;
+    margin-top: 50px;
+}
+
+
+/* General */
+
+body {
+    background-color: #ecf0f1;
+}
+
+
+/* continut */
+
+.fa-users {
+    margin-top: 50px;
+    color: #2ecc71;
+}
+
+
+/* btn */
+
+.btn {
+    margin-top: 30px;
+    font-family: 'Oxygen', sans-serif;
+}
+
+.container {
+    padding-bottom: 100px;
+}
+
+.card {
+    background-color: #ECF0F1;
+    color: black;
+    border: 1px solid #D4D8D8;
+    margin-top: 10px;
+
+}
+
+/*  MODAL */
+
+/* Stoc modal */
+
+@media (max-width: 767.98px) {
+    .modal-title {
+        margin-left: 18%;
+    }
+
+    .introduceredate {
+        margin-top: 10px;
+        margin-left: 15%;
+    }
+
+    .adaugareprodusadauga {
+        margin-left: 20%;
+        margin-top: 5px;
+    }
+
+    .form-control {
+        width: 190px;
+        box-shadow: none!important;
+    }
+}
+
+@media (min-width: 767.98px) {
+    .modal-title {
+        margin-left: 34%;
+    }
+
+    .modal-body {
+        margin-top : -30px;
+    }
+
+    .introduceredate {
+        margin-top: 10px;
+        margin-left: 30%;
+    }
+
+    .adaugareprodusadauga {
+        margin-left: 17%;
+        margin-top: 10px;
+    }
+
+    .form-control {
+        width: 200px;
+        box-shadow: none!important;
+    }
+}
+
+form {
+    margin-top: 40px;
+}
+

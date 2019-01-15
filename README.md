@@ -4,7 +4,7 @@
  
 # Despre
 
-Un sistem de manangement a unei farmacii care include pe partea de gestiune: Stocul, Furnizori, Clienti, Dashboard, Vanzari, 
+Un sistem de management a unei farmacii care include pe partea de gestiune: Stocul, Furnizori, Clienti, Dashboard, Vanzari, 
 iar pe partea de client: Farmacie Online(shop)
 
 

@@ -24,7 +24,7 @@
 
 .row {
     margin-left: -10px;
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 
@@ -42,24 +42,21 @@ body {
     color: #2ecc71;
 }
 
+.fa-truck-moving {
+    margin-top: 50px;
+    color: #2ecc71;
+}
+
 
 /* btn */
 
 .btn {
-    margin-top: 30px;
+    margin-top: 10px;
     font-family: 'Oxygen', sans-serif;
 }
 
 .container {
     padding-bottom: 100px;
-}
-
-.card {
-    background-color: #ECF0F1;
-    color: black;
-    border: 1px solid #D4D8D8;
-    margin-top: 10px;
-
 }
 
 /*  MODAL */
@@ -116,3 +113,6 @@ form {
     margin-top: 40px;
 }
 
+.card-text {
+    margin-bottom: 0;
+}

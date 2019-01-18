@@ -1,5 +1,6 @@
 <?php
 include('session.php');
+ob_start();
 ?>
 <!doctype html>
 <html lang="en">
@@ -32,54 +33,55 @@ include('session.php');
                 <a class="nav-link" href="../php/dashboard.php">Dashboard</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../php/vanzari.php">Produse</a>
+                <a class="nav-link" href="../php/sales.php">Clienti</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../php/vanzariprodus.php">Vanzari</a>
+                <a class="nav-link" href="../php/stock.php">Stoc</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../php/stoc.php">Stoc</a>
+                <a class="nav-link" href="../php/providers.php">Furnizori</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../php/furnizori.php">Furnizori</a>
+                <a class="nav-link" href="../php/staff.php">Angajati</a>
             </li>
         </ul>
     </div>
 </nav>
 
 <div class="container">
-    <i class="fas fa-users fa-4x mx-auto d-block"></i>
-    <div class="row">
+    <i class="fas fa-truck-moving fa-4x mx-auto d-block"></i>
+    <div class="row ml-4">
         <?php
-        include("connection.php");
         $rezult = "SELECT * FROM furnizori";
         $rezultat = mysqli_query($connection, $rezult);
-        if(isset($_GET["del"])){
+        if (isset($_GET["del"])) {
             $id = $_GET["del"];
-            if($connection->query("DELETE FROM furnizori WHERE id = $id")){
-                header('Location: ../php/furnizori.php');
+            if ($connection->query("DELETE FROM furnizori WHERE id = $id")) {
+                header('Location: ../php/providers.php');
             } else {
                 echo "Failed to delete staff member.";
             }
         }
         if ($rezultat->num_rows > 0) {
             while ($row = $rezultat->fetch_assoc()) {
-                echo "<div class=\"col-sm-4\">
-            <div class=\"card\">
-                <div class=\"card-body\">
-                    <p class=\"card-title text-center display-4\" style='font-size: 30px'>" . $row["Nume"] . "</p>
-                    <hr />
-                    <p class=\"card-text text-center lead\" style=\"margin-top: 20px; margin-bottom: 0px;\">" . $row["Despre"] . "</p>
-                    <a  class='btn btn-danger text-center' style=\"margin-left: 37%\" href='furnizori.php?del=" . $row["id"] . "'>Delete</a>
-                </div>
-            </div>
-        </div>";
+                echo "<div class=\"col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12\">
+                            <div class=\"card mt-4\" style=\"width: 18rem;\">
+                                <img src=" . $row["Image"] . " class=\"card-img-top\" alt=\"Provider image\" height='200px'>
+                                <div class=\"card-body\">
+                                    <h5 class=\"card-title\">" . $row["Nume"] . "</h5>
+                                    <p class=\"card-text\">" . $row["Despre"] . "</p>
+                                    <a  class='btn btn-danger text-center mt-3' style=\"margin-left: 32%\" href='providers.php?del=" . $row["id"] . "'><i class=\"fas fa-trash-alt\"></i> Delete</a>
+                                </div>
+                            </div>
+                        </div>";
             }
         }
+        $connection->close();
         ?>
     </div>
-    <button type="button" class="btn btn-success mx-auto d-block" data-toggle="modal"
-            data-target="#adaugafurnizor">Adaugare furnizor</button>
+    <button type="button" class="btn btn-success mx-auto d-block mt-5" data-toggle="modal"
+            data-target="#adaugafurnizor"><i class="fas fa-plus-square"></i> Adaugare furnizor
+    </button>
 </div>
 
 <!-- modal adaugare produs -->
@@ -95,12 +97,14 @@ include('session.php');
                 </button>
             </div>
             <div class="modal-body">
-                <form method="post" action="../php/furnizormodal.php">
+                <form method="post" action="providersModal.php" enctype="multipart/form-data">
                     <div class="row introduceredate">
                         <input type="text" name="denumirefurnizor" placeholder="Furnizor" class="form-control" required>
                     </div>
                     <div class="row introduceredate">
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Informatii.." name="informatii" required></textarea>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                  placeholder="Informatii.." name="informatii" required></textarea>
+                        <input type="file" name="uploaded_file" class="mt-1">
                     </div>
                     <div class="row introduceredate">
                         <button type="submit" class="btn btn-success adaugareprodusadauga" name="submit" value="Submit">

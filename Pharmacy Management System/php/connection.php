@@ -6,7 +6,7 @@
  * Time: 3:45 PM
  */
 
-$connection = mysqli_connect("127.0.0.1", "root", "", "cursphp");
+$connection = mysqli_connect("127.0.0.1", "root", "password", "pharmacyERP");
 if(!$connection){
     die("Database connection failed!".mysqli_error($connection));
 }

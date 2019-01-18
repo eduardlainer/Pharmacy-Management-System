@@ -29,6 +29,10 @@ body {
     background-color: #ecf0f1;
 }
 
+.adaugareproduseditare {
+    margin-left: 18%;
+}
+
 
 /* Butoane setari */
 
@@ -71,7 +75,6 @@ form {
     }
 
     .adaugareproduseditare {
-        margin-left: 23%;
         margin-top: 10px;
     }
 
@@ -102,7 +105,7 @@ form {
     }
 
     .adaugareproduseditare {
-        margin-left: 20%;
+    
         margin-top: 10px;
     }
 
@@ -118,4 +121,8 @@ form {
 
 .container {
     padding-bottom: 100px;
+}
+
+#editform {
+    margin-top: 0;
 }

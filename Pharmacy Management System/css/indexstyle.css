@@ -61,3 +61,67 @@ p > .error {
     margin-left: 50px;
     color: red;
 }
+
+/* Nav menu */
+
+.asd {
+    background-color: #2ecc71;
+    color:white;
+    margin-left: 3%;
+}
+
+.fas {
+    color: #2ecc71;
+}
+
+.nav {
+    margin-bottom: 10px !important;
+    padding-bottom: 10px !important;
+
+}
+
+#magazin-produse-title {
+    font-family: 'Julius Sans One', sans-serif;
+}
+
+#magazin-cos {
+    margin-left: 53%;
+    margin-top: 1%;
+
+}
+
+.magazin-produse {
+    margin-bottom: 10%;
+}
+
+.btn-danger {
+    background-color: red;
+}
+
+.btn-danger:hover {
+    background-color: red;
+}
+
+.cart-checkout-button {
+    color: white;
+}
+
+.cart-checkout-form {
+    margin-bottom: 10%;
+}
+
+.checkout-title{
+    font-family: 'Julius Sans One', sans-serif;
+}
+
+.cart-total-cost {
+    text-align: right;
+}
+
+.fa-share-square {
+    color: white;
+}
+
+.table {
+    width: 100% !important;
+}

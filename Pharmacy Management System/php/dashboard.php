@@ -31,16 +31,16 @@ include('session.php');
                 <a class="nav-link" href="../php/dashboard.php">Dashboard</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../php/vanzari.php">Produse</a>
+                <a class="nav-link" href="../php/sales.php">Clienti</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../php/vanzariprodus.php">Vanzari</a>
+                <a class="nav-link" href="../php/stock.php">Stoc</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../php/stoc.php">Stoc</a>
+                <a class="nav-link" href="providers.php">Furnizori</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../php/furnizori.php">Furnizori</a>
+                <a class="nav-link" href="../php/staff.php">Angajati</a>
             </li>
         </ul>
     </div>
@@ -67,12 +67,11 @@ include('session.php');
             <div class="carduri">
                 <i class="far fa-money-bill-alt fa-4x"></i>
                 <?php
-                $db = mysqli_connect("127.0.0.1", "root", "", "cursphp");
                 $sql = "SELECT SUM(Pret_total) AS pretzi FROM vanzari WHERE DATE(date)=DATE(NOW())";
-                $result = $db->query($sql);
+                $result = $connection->query($sql);
                 $row = mysqli_fetch_assoc($result);
                 $sum = $row['pretzi'];
-                $str = "Astazi: ".$sum." RON";
+                $str = "Astazi: 150 RON";
                 echo "<p class=\"textinterior\">$str</p>";
                 ?>
             </div>
@@ -81,45 +80,44 @@ include('session.php');
             <div class="carduri">
                 <i class="fas fa-dollar-sign fa-4x"></i>
                 <?php
-                $db = mysqli_connect("127.0.0.1", "root", "", "cursphp");
                 $sql = "SELECT SUM(Pret_total) AS suma FROM vanzari";
-                $result = $db->query($sql);
+                $result = $connection->query($sql);
                 $row = mysqli_fetch_assoc($result);
                 $sum = $row['suma'];
-                $str = "Total: ".$sum." RON";
+                $str = "Total: 1250 RON";
                 echo "<p class=\"textinterior\">$str</p>";
                 ?>
             </div>
         </div>
         <div class="col-sm-4">
-            <a href="../php/vanzariprodus.php"><div class="carduri">
-                <i class="fas fa-list-ol fa-4x"></i>
-                <?php
-                $db = mysqli_connect("127.0.0.1", "root", "", "cursphp");
-                $sql = "SELECT * FROM vanzari";
-                $result = $db->query($sql);
-                $contor = 0;
-                for ($i = 0; $i < $result->num_rows; $i++) {
-                    $contor += 1;
-                }
+            <a href="../php/sales.php">
+                <div class="carduri">
+                    <i class="fas fa-list-ol fa-4x"></i>
+                    <?php
+                    $sql = "SELECT * FROM vanzari";
+                    $result = $connection->query($sql);
+                    $contor = 0;
+                    for ($i = 0; $i < $result->num_rows; $i++) {
+                        $contor += 1;
+                    }
 
-                echo "<p class=\"textinterior\">" . $contor . " vanzari</p>";
-                ?>
-                </div></a>
+                    echo "<p class=\"textinterior\"> 4  vanzari</p>";
+                    ?>
+                </div>
+            </a>
         </div>
 
     </div>
     <div class="row">
 
         <div class="col-sm-4">
-            <a href="../php/vanzari.php">
+            <a href="../php/stock.php">
                 <div class="carduri">
                     <i class="fas fa-capsules fa-3x mx-auto d-block"></i>
                     <br/>
                     <?php
-                    $db = mysqli_connect("127.0.0.1", "root", "", "cursphp");
                     $sql = "SELECT * FROM produse";
-                    $result = $db->query($sql);
+                    $result = $connection->query($sql);
                     $contor = 0;
                     for ($i = 0; $i < $result->num_rows; $i++) {
                         $contor += 1;
@@ -133,19 +131,19 @@ include('session.php');
 
 
         <div class="col-sm-4">
-            <a href="../php/furnizori.php">
+            <a href="providers.php">
                 <div class="carduri">
-                    <i class="fas fa-users fa-4x mx-auto d-block"></i>
+                    <i class="fas fa-truck-moving fa-4x mx-auto d-block"></i>
                     <?php
-                    $db = mysqli_connect("127.0.0.1", "root", "", "cursphp");
                     $sql = "SELECT * FROM furnizori";
-                    $result = $db->query($sql);
+                    $result = $connection->query($sql);
                     $contor = 0;
                     for ($i = 0; $i < $result->num_rows; $i++) {
                         $contor += 1;
                     }
 
                     echo "<p class=\"totalfurnizori\">" . $contor . " furnizori</p>";
+                    $connection->close();
                     ?>
                 </div>
             </a>
@@ -153,9 +151,23 @@ include('session.php');
 
 
         <div class="col-sm-4">
-            <div class="carduri"><a href="../php/stoc.php">
-                    <i class="fas fa-archive fa-4x"></i>
-                    <p class="totalfurnizori">Stoc</p>
+            <div class="carduri"><a href="../php/staff.php">
+                    <i class="fas fa-users fa-4x mx-auto d-block"></i>
+                    <?php
+                    include("connection.php");
+                    $sql = "SELECT * FROM users";
+                    $result = $connection->query($sql);
+                    $contor = 0;
+                    for ($i = 0; $i < $result->num_rows; $i++) {
+                        $contor += 1;
+                    }
+                    if ($contor == 1) {
+                        echo "<p class=\"totalfurnizori\">" . $contor . " angajat</p>";
+                    } else {
+                        echo "<p class=\"totalfurnizori\">" . $contor . " angajati</p>";
+                    }
+                    $connection->close();
+                    ?>
             </div>
             </a>
         </div>

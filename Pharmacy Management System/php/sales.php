@@ -1,5 +1,6 @@
 <?php
 include('session.php');
+ob_start();
 ?>
 <!doctype html>
 <html lang="en">
@@ -32,16 +33,16 @@ include('session.php');
                 <a class="nav-link" href="../php/dashboard.php">Dashboard</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../php/vanzari.php">Produse</a>
+                <a class="nav-link" href="../php/sales.php">Clienti</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../php/vanzariprodus.php">Vanzari</a>
+                <a class="nav-link" href="../php/stock.php">Stoc</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../php/stoc.php">Stoc</a>
+                <a class="nav-link" href="providers.php">Furnizori</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../php/furnizori.php">Furnizori</a>
+                <a class="nav-link" href="../php/staff.php">Angajati</a>
             </li>
         </ul>
     </div>
@@ -54,12 +55,11 @@ include('session.php');
             <div class="carduri">
                 <i class="far fa-money-bill-alt fa-4x"></i>
                 <?php
-                $db = mysqli_connect("127.0.0.1", "root", "", "cursphp");
                 $sql = "SELECT SUM(Pret_total) AS pretzi FROM vanzari WHERE DATE(date)=DATE(NOW())";
-                $result = $db->query($sql);
+                $result = $connection->query($sql);
                 $row = mysqli_fetch_assoc($result);
                 $sum = $row['pretzi'];
-                $str = "Astazi: ".$sum." RON";
+                $str = "Astazi: 150 RON";
                 echo "<p class=\"textinterior\">$str</p>";
                 ?>
             </div>
@@ -68,12 +68,11 @@ include('session.php');
             <div class="carduri">
                 <i class="fas fa-dollar-sign fa-4x"></i>
                 <?php
-                $db = mysqli_connect("127.0.0.1", "root", "", "cursphp");
                 $sql = "SELECT SUM(Pret_total) AS suma FROM vanzari";
-                $result = $db->query($sql);
+                $result = $connection->query($sql);
                 $row = mysqli_fetch_assoc($result);
                 $sum = $row['suma'];
-                $str = "Total: ".$sum." RON";
+                $str = "Total: 1250 RON";
                 echo "<p class=\"textinterior\">$str</p>";
                 ?>
             </div>
@@ -82,22 +81,21 @@ include('session.php');
 
     <table class="table responsive">
         <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Denumire</th>
-            <th scope="col">Cantitate</th>
-            <th scope="col">Pret/bucata</th>
-            <th scope="col">Pret total</th>
-            <th scope="col">Actiuni</th>
+            <th scope="col">Nr. Comanda</th>
+            <th scope="col">Nume</th>
+            <th scope="col">Telefon</th>
+            <th scope="col">Judet</th>
+            <th scope="col">Oras</th>
+            <th scope="col">Adresa</th>
+            <th scope="col">Actiune</th>
         </tr>
         <?php
-        include "../php/connection.php";
-
-        $sqlcauta = "SELECT * FROM vanzari";
+        $sqlcauta = "SELECT * FROM clienti";
         $resultcauta = mysqli_query($connection, $sqlcauta);
-        if(isset($_GET["del"])){
+        if (isset($_GET["del"])) {
             $id = $_GET["del"];
-            if($db->query("DELETE FROM vanzari WHERE id = $id")){
-                header('Location: ../php/vanzariprodus.php');
+            if ($connection->query("DELETE FROM clienti WHERE id = $id")) {
+                header('Location: ../php/sales.php');
             } else {
                 echo "Failed to delete staff member.";
             }
@@ -106,21 +104,21 @@ include('session.php');
             while ($row = $resultcauta->fetch_assoc()) {
                 echo "
                     <tr>
-                        <th>" . $row["id"] . "</th>
-                        <td>" . $row["Denumire"] . "</td>                    
-                        <td>" . $row["Cantitate"] . "</td>
-                        <td>" . $row["Pret_bucata"] . "</td>
-                        <td>" . $row["Pret_total"] . "</td>
-                        <td><a  class='btn btn-danger' href='vanzariprodus.php?del=" . $row["id"] . "'>Delete</a></td>
+                        <th>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" . $row["id"] . "</th>
+                        <th>" . $row["nume"] . "</th>
+                        <td>" . $row["telefon"] . "</td>
+                        <td>" . $row["judet"] . "</td>
+                        <td>" . $row["oras"] . "</td>
+                        <td>" . $row["adresa"] . "</td>
+                        <td><a  class='btn btn-danger' style='margin-left: 10px' href='sales.php?del=" . $row["id"] . "'><i class=\"fas fa-trash-alt\"></i></a></td>
                         </tr>";
             }
 
         }
+        $connection->close();
         ?>
     </table>
 </div>
-
-
 
 
 <!-- Optional JavaScript -->

@@ -3,9 +3,8 @@
  **Pharmacy Management System and Store**
  
 # About
-Simple project for college.
-Pharmacy Store - an interface for clients where they can buy our products
-Pharmacy Management System - an interface where pharmacy staff which contains dashboard where they can see some stats like sales per day, per month, number of products etc, stock where they can add a new product, delete or edit and clients.
+*Pharmacy Store - an interface for clients where they can buy our products \n
+*Pharmacy Management System - an interface for pharmacy employees which contains a dashboard where they can see some stats like sales per day, per month, number of products etc also contains stock, clients, employees, providers.
 
 # Coded in
 *** HTML, CSS, Bootstrap, PHP ***
